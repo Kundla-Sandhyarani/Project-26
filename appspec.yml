@@ -4,6 +4,10 @@ files:
   - source: /
     destination: /home/ec2-user/node-app
 hooks:
+  BeforeInstall:
+    - location: scripts/set_permissions.sh
+      timeout: 60
+      runas: ec2-user
   AfterInstall:
     - location: scripts/install_dependencies.sh
       timeout: 300
